@@ -18,7 +18,7 @@ and Dog() =
     inherit Animal()
     member val favoriteFoods: string[] = [||] with get, set
 
-type ResultRecord = { dog: Dog; animal: Animal }
+type Test1Result = { dog: Dog; animal: Animal }
 
 [<EntryPoint>]
 let main args =
@@ -33,7 +33,7 @@ let main args =
         app.MapOpenApi() |> ignore
 
     app.MapGet("/test1", Func<string>(fun () -> "Hello World!"))
-    |> _.Produces<ResultRecord>(StatusCodes.Status200OK, null, [||])
+    |> _.Produces<Test1Result>(StatusCodes.Status200OK, null, [||])
     |> ignore
 
     app.MapGet("/test2", Func<string>(fun () -> "Hello World!"))
